@@ -7,7 +7,7 @@
         <MoreInfo>https://marketplace.visualstudio.com/items?itemName=ViacheslavLozinskyi.Preview-SQL</MoreInfo>
         <License>resource\document\LICENSE</License>
         <Icon>resource\picture\icon.png</Icon>
-        <Tags>MetaOutput; data; SQL; preview; viewer</Tags>
+        <Tags>MetaOutput; data; SQL; TSQL; preview; viewer</Tags>
     </Metadata>
     <Installation>
         <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[15.0,17.0)">
