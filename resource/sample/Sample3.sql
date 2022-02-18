@@ -1,3 +1,4 @@
+
 DECLARE @TableVar table(
     [JobTitle] [nvarchar](50) NOT NULL,
   [BirthDate] [date] NOT NULL,
@@ -24,5 +25,21 @@ INSERT INTO @TableVar
 
 -- View the table variable result set.
 SELECT * FROM @TableVar;
-GO
 
+DROP PROCEDURE IF EXISTS net_filter_register;
+
+CREATE PROCEDURE net_filter_register(
+    IN _type ENUM("IP", "URL"),
+    IN _value VARCHAR(256))
+BEGIN
+    SET _type = UPPER(_type);
+    SET _value = LOWER(_value);
+    SET _value = TRIM(_value);
+
+    IF (NOT EXISTS(SELECT _value FROM net_filters WHERE (type = _type) AND (value = _value))) THEN
+        INSERT INTO net_filters(type, value)
+        VALUE (_type, _value);
+    END IF;
+END;
+
+GO
