@@ -24,7 +24,7 @@ namespace resource.package
             public const string DESCRIPTION = "Quick preview of SQL files";
             public const string GUID = "899E2443-06A7-46BE-BC33-697AAF14D559";
             public const string NAME = "Preview-SQL";
-            public const string VERSION = "1.0.2";
+            public const string VERSION = "1.0.3";
         }
 
         protected override async Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
