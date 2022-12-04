@@ -31,8 +31,8 @@ namespace resource.preview
             {
                 context.
                     SetUrl(file).
-                    Send(NAME.SOURCE.PREVIEW, NAME.TYPE.EXCEPTION, level, ex.Message).
-                    SendPreview(NAME.TYPE.EXCEPTION, url);
+                    Send(NAME.SOURCE.PREVIEW, NAME.EVENT.EXCEPTION, level, ex.Message).
+                    SendPreview(NAME.EVENT.EXCEPTION, url);
             }
         }
 
@@ -58,13 +58,13 @@ namespace resource.preview
         {
             if (level == 1)
             {
-                return atom.Trace.NAME.TYPE.OBJECT;
+                return atom.Trace.NAME.EVENT.OBJECT;
             }
             if (data.GetType().Name.Contains("Identifier"))
             {
-                return atom.Trace.NAME.TYPE.VARIABLE;
+                return atom.Trace.NAME.EVENT.VARIABLE;
             }
-            return atom.Trace.NAME.TYPE.PARAMETER;
+            return atom.Trace.NAME.EVENT.PARAMETER;
         }
 
         private static string __GetComment(SqlCodeObject data)
